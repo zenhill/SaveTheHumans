@@ -13,6 +13,11 @@
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">Save the Humans</x:String>
+        <ControlTemplate x:Key="EnemyTemplate" TargetType="ContentControl">
+            <Grid>
+                <Ellipse Fill="#FFF7083E" Height="100" Stroke="Black" Width="100"/>
+            </Grid>
+        </ControlTemplate>
     </Page.Resources>
 
     <!--
@@ -55,7 +60,7 @@
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
             <TextBlock TextWrapping="Wrap" Text="Avoid These" Style="{StaticResource SubheaderTextBlockStyle}"/>
-            <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center" Template="{StaticResource EnemyTemplate}"/>
         </StackPanel>
         <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
         <Canvas x:Name="playArea" Grid.Row="1" Grid.ColumnSpan="3">
