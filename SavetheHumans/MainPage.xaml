@@ -82,6 +82,17 @@
                     </LinearGradientBrush>
                 </TextBlock.Foreground>
             </TextBlock>
+            <Rectangle x:Name="targetPortal" Height="50" Canvas.Left="1035" Stroke="Black" Canvas.Top="70" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="45"/>
+                </Rectangle.RenderTransform>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFFBFB02" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
         </Canvas>
     </Grid>
 </Page>
