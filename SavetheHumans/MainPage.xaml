@@ -23,8 +23,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160*"/>
-            <ColumnDefinition Width="1035*"/>
-            <ColumnDefinition Width="166*"/>
+            <ColumnDefinition Width="1039*"/>
+            <ColumnDefinition Width="160"/>
         </Grid.ColumnDefinitions>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -32,7 +32,7 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
+            <RowDefinition Height="160"/>
             <RowDefinition Height="125*"/>
             <RowDefinition Height="32*"/>
         </Grid.RowDefinitions>
