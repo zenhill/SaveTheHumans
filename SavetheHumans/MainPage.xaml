@@ -53,9 +53,9 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="14,0,0,103" Grid.Row="2" TextWrapping="Wrap" Text="Avoid These" VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,73" Grid.Row="2" TextWrapping="Wrap" Text="Avoid These" Height="35" VerticalAlignment="Bottom" Style="{StaticResource SubheaderTextBlockStyle}" Width="140"/>
         <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="254,63,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
-        <ContentControl Content="ContentControl" Grid.Column="2" HorizontalAlignment="Left" Margin="14,53,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <ContentControl Content="ContentControl" Grid.Column="2" HorizontalAlignment="Left" Margin="13,72,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         <Canvas Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="499,180,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>
