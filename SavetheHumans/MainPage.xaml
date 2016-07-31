@@ -28,7 +28,8 @@
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="32*"/>
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
