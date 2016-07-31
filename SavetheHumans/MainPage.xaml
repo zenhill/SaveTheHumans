@@ -57,7 +57,7 @@
             <TextBlock TextWrapping="Wrap" Text="Avoid These" Style="{StaticResource SubheaderTextBlockStyle}"/>
             <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-        <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="254,63,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
+        <ProgressBar Grid.Column="1" Grid.Row="2"/>
         <Canvas Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="499,180,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>
