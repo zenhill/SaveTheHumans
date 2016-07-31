@@ -58,6 +58,13 @@
             <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
         <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
-        <Canvas Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="499,180,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Canvas x:Name="playArea" Grid.Row="1" Grid.ColumnSpan="3">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF4570CB" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+        </Canvas>
     </Grid>
 </Page>
