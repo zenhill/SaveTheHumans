@@ -23,7 +23,7 @@ namespace SavetheHumans
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        private Random random = new Random();
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
@@ -102,5 +102,27 @@ namespace SavetheHumans
         }
 
         #endregion
+
+        private void startButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddEnemy();
+        }
+
+        private void AddEnemy()
+        {
+            ContentControl enemy = new ContentControl();
+            enemy.Template =Resources["EnemyTemplate"] as ControlTemplate;
+            AnimateEnemy(enemy, 0, playArea.ActualWidth - 100, "(Canvas.Left)");
+            AnimateEnemy(enemy, random.Next((int) playArea.ActualHeight - 100),
+                random.Next((int) playArea.ActualHeight - 100), "(Canvas.Top)");
+            playArea.Children.Add(enemy);
+
+
+        }
+
+        private void AnimateEnemy(ContentControl enemy, double to, double from, string propertyToAnimate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
