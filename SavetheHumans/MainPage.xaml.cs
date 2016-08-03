@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
@@ -111,7 +112,7 @@ namespace SavetheHumans
         private void AddEnemy()
         {
             ContentControl enemy = new ContentControl();
-            enemy.Template =Resources["EnemyTemplate"] as ControlTemplate;
+            enemy.Template = Resources["EnemyTemplate"] as ControlTemplate;
             AnimateEnemy(enemy, 0, playArea.ActualWidth - 100, "(Canvas.Left)");
             AnimateEnemy(enemy, random.Next((int) playArea.ActualHeight - 100),
                 random.Next((int) playArea.ActualHeight - 100), "(Canvas.Top)");
@@ -122,7 +123,15 @@ namespace SavetheHumans
 
         private void AnimateEnemy(ContentControl enemy, double to, double from, string propertyToAnimate)
         {
-            throw new NotImplementedException();
+            Storyboard storyboard = new Storyboard() {AutoReverse = true, RepeatBehavior = RepeatBehavior.Forever};
+            DoubleAnimation animation = new DoubleAnimation()
+            {
+                From = from,
+                  To = to,
+                Duration = new Duration(TimeSpan.FromSeconds(random.Next(4,6)))
+
+            };
+
         }
     }
 }
