@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -150,9 +151,9 @@ namespace SavetheHumans
         /// NavigationHelper to respond to the page's navigation methods.
         /// 
         /// Page specific logic should be placed in event handlers for the
-        /// <see cref="GridCS.Common.NavigationHelper.LoadState" />
+        /// <see cref="Common.NavigationHelper.LoadState" />
         /// and
-        /// <see cref="GridCS.Common.NavigationHelper.SaveState" />
+        /// <see cref="Common.NavigationHelper.SaveState" />
         /// .
         /// The navigation parameter is available in the LoadState method 
         /// in addition to page state preserved during an earlier session.
@@ -190,6 +191,32 @@ namespace SavetheHumans
                 human.IsHitTestVisible = true;
 
             }
+        }
+
+        private void playArea_PointerMoved(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+             if (humanCaptured)
+            {
+                Point pointerPosition = e.GetCurrentPoint(null).Position;
+                Point relativePosition = grid.TransformToVisual(playArea).TransformPoint(pointerPosition);
+                if ((Math.Abs(relativePosition.X-Canvas.GetLeft(human))>human.ActualWidth*3) ||
+                (Math.Abs(relativePosition.Y - Canvas.GetTop(human)) > human.ActualHeight*3))
+                {
+                    humanCaptured = false;
+                    human.IsHitTestVisible = true;
+                }
+            else
+                {
+                    Canvas.SetLeft(human, relativePosition.X - human.ActualWidth/2);
+                    Canvas.SetTop(human,relativePosition.Y-human.ActualHeight/2);
+                }
+            }
+        }
+
+        private void playArea_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            if(humanCaptured)
+                EndTheGames();
         }
     }
 }
