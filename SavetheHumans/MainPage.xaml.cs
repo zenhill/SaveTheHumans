@@ -48,12 +48,31 @@ namespace SavetheHumans
 
         void targeTimer_Tick(object sender, object e)
         {
+            progressBar.Value += 1;
+            if (progressBar.Value >= progressBar.Maximum)
+                EndTheGames();
+
+
+
+
+
+        }
+
+        private void EndTheGames()
+        {
             throw new NotImplementedException();
         }
 
         void enemyTimer_Tick(object sender, object e)
         {
-            throw new NotImplementedException();
+            if (!playArea.Children.Contains(gameOverText))
+            {
+                enemyTimer.Stop();
+                targeTimer.Stop();
+                humanCaptured = false;
+                startButton.Visibility = Visibility.Visible;
+                playArea.Children.Add(gameOverText);
+            }
         }
 
         /// <summary>
