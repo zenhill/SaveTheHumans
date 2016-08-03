@@ -51,11 +51,6 @@ namespace SavetheHumans
             progressBar.Value += 1;
             if (progressBar.Value >= progressBar.Maximum)
                 EndTheGames();
-
-
-
-
-
         }
 
         private void EndTheGames()
@@ -108,7 +103,20 @@ namespace SavetheHumans
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
-            AddEnemy();
+            StartGame();
+        }
+
+        private void StartGame()
+        {
+            human.IsHitTestVisible = true;
+            humanCaptured = false;
+            progressBar.Value = 0;
+            startButton.Visibility = Visibility.Collapsed;
+            playArea.Children.Clear();
+            playArea.Children.Add(targetPortal);
+            playArea.Children.Add(human);
+            enemyTimer.Start();
+            targeTimer.Start();
         }
 
         private void AddEnemy()
