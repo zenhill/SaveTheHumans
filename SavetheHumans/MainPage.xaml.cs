@@ -14,31 +14,27 @@ namespace SavetheHumans
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private readonly Random random = new Random();
+        Random random = new Random();
 
+        private NavigationHelper navigationHelper;
+        private ObservableDictionary defaultViewModel = new ObservableDictionary();
+
+        public ObservableDictionary DefaultViewModel
+        {
+            get { return this.defaultViewModel; }
+        }
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
 
         public MainPage()
         {
-            InitializeComponent();
-            NavigationHelper = new NavigationHelper(this);
-            NavigationHelper.LoadState += navigationHelper_LoadState;
-            NavigationHelper.SaveState += navigationHelper_SaveState;
+            this.InitializeComponent();
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += navigationHelper_LoadState;
+            this.navigationHelper.SaveState += navigationHelper_SaveState;
         }
-
-        /// <summary>
-        ///     This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return defaultViewModel; }
-        }
-
-        /// <summary>
-        ///     NavigationHelper is used on each page to aid in navigation and
-        ///     process lifetime management
-        /// </summary>
-        public NavigationHelper NavigationHelper { get; private set; }
 
         /// <summary>
         ///     Populates the page with content passed during navigation. Any saved state is also
@@ -88,13 +84,17 @@ namespace SavetheHumans
 
         private void AnimateEnemy(ContentControl enemy, double to, double from, string propertyToAnimate)
         {
-            var storyboard = new Storyboard {AutoReverse = true, RepeatBehavior = RepeatBehavior.Forever};
-            var animation = new DoubleAnimation
+            Storyboard storyboard = new Storyboard { AutoReverse = true, RepeatBehavior = RepeatBehavior.Forever };
+            DoubleAnimation animation = new DoubleAnimation()
             {
                 From = from,
                 To = to,
                 Duration = new Duration(TimeSpan.FromSeconds(random.Next(4, 6)))
             };
+            Storyboard.SetTarget(animation, enemy);
+            Storyboard.SetTargetProperty(animation, propertyToAnimate);
+            storyboard.Children.Add(animation);
+            storyboard.Begin();
         }
 
         #region NavigationHelper registration
