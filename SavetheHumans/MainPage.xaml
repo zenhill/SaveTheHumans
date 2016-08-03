@@ -74,7 +74,7 @@
                 <Ellipse Fill="#FFFFFDFD" Height="10" Stroke="Black" Margin="0,0,2,0" Width="10"/>
                 <Rectangle Fill="#FFF9F4F5" Height="25" Stroke="Black" Margin="2,0,0,0" Width="10"/>
             </StackPanel>
-            <TextBlock x:Name="gameOverText" Canvas.Left="425" TextWrapping="Wrap" Text="GameOver" Canvas.Top="160" FontFamily="Arial Black" FontSize="100" FontWeight="Bold" FontStyle="Italic">
+            <TextBlock x:Name="gameOverText" Canvas.Left="420" TextWrapping="Wrap" Text="GameOver" Canvas.Top="205" FontFamily="Arial Black" FontSize="100" FontWeight="Bold" FontStyle="Italic">
 
                 <TextBlock.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
