@@ -60,14 +60,7 @@ namespace SavetheHumans
 
         void enemyTimer_Tick(object sender, object e)
         {
-            if (!playArea.Children.Contains(gameOverText))
-            {
-                enemyTimer.Stop();
-                targeTimer.Stop();
-                humanCaptured = false;
-                startButton.Visibility = Visibility.Visible;
-                playArea.Children.Add(gameOverText);
-            }
+            AddEnemy();
         }
 
         /// <summary>
